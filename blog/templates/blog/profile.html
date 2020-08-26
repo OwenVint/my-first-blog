@@ -4,6 +4,17 @@
 	<title>CV PAGE</title>
 </head>
 <body>
-	<h1>CV PAGE</h1>
+	<div class="profile">
+        {% if profile.published_date %}
+            <div class="date">
+                {{ profile.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+     		
+		{% endif %}
+        <h2>{{ profile.name }}</h2>
+        <p>{{ profile.overview|linebreaksbr }}</p>
+    </div>
 </body>
 </html>
