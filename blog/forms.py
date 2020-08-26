@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Post, Profile
+from .models import Post, Profile, Profile_CV
 
 class PostForm(forms.ModelForm):
 
@@ -11,5 +11,6 @@ class PostForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
 
 	class Meta:
-		model = Profile
-		fields = ('name', 'overview')
+		model = Profile_CV
+		fields = ('name', 'overview','personal_details','experience','education','skills','interests','references' )
+	
