@@ -43,16 +43,16 @@ def profile(request):
     profile = get_object_or_404(Profile)
     return render(request, 'blog/profile.html',{'profile': profile})
 
-def profile_edit(request, pk):
-    profile = get_object_or_404(Profile, pk = 1)
+def profile_edit(request):
+    profile = get_object_or_404(Profile)
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=post)
+        form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('profile', pk = 1)
+            profile.published_date = timezone.now()
+            profile.save()
+            return redirect('profile')
     else:
         form = ProfileForm(instance = profile)
-    return render(request, 'blog/profile/profile_edit.html',{'profile' : profile})
+    return render(request, 'blog/profile_edit.html',{'form' : form})

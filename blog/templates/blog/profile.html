@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>CV PAGE</title>
-</head>
-<body>
-	<div class="profile">
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="profile">
         {% if profile.published_date %}
             <div class="date">
                 {{ profile.published_date }}
             </div>
         {% endif %}
         {% if user.is_authenticated %}
-     		
+     		<a href="{% url 'profile_edit' %}">Edit</a>
 		{% endif %}
         <h2>{{ profile.name }}</h2>
         <p>{{ profile.overview|linebreaksbr }}</p>
     </div>
-</body>
-</html>
+{% endblock %}
