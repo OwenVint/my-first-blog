@@ -12,9 +12,13 @@
             <a class="btn btn-default" href="{% url 'profile_edit' %}"><span class="glyphicon glyphicon-pencil"></span></a>
 		{% endif %}
         <h2>{{ profile.name }}</h2>
-        <p>{{ profile.education }}</p>
-        <p>{{ profile.skills }}</p>
-        <p>{{ profile.overview|linebreaksbr }}</p>
+        <p>{{ profile.overview|linebreaksbr}}</p>
+        <p>{{ profile.personal_details|linebreaksbr}}</p>
+        <p>{{ profile.experience|linebreaksbr }}</p>
+        <p>{{ profile.education|linebreaksbr }}</p>
+        <p>{{ profile.skills|linebreaksbr }}</p>
+        <p>{{ profile.interests|linebreaksbr }}</p>
+        <p>{{ profile.references|linebreaksbr }}</p>
 
     </div>
 {% endblock %}
