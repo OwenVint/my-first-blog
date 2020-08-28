@@ -2,6 +2,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <head>
+     <title>CV Page</title>
+    </head>
     <div class="prof">
         {% if profile.published_date %}
             <div class="date">
@@ -19,6 +22,7 @@
         <p>{{ profile.skills|linebreaksbr }}</p>
         <p>{{ profile.interests|linebreaksbr }}</p>
         <p>{{ profile.references|linebreaksbr }}</p>
+        <p>Last Edited: {{ profile.published_date }}</p>
 
     </div>
 {% endblock %}

@@ -1,13 +1,16 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <head>
+     <title>The Blog of Owen Vint</title>
+    </head>
 	{% for post in posts %}
     	<div class="post">
         	<div class="date">
-            	{{ post.published_date }}
+            	Last edited : {{ post.published_date }}
         	</div>
         	<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        	<p>{{ post.text|linebreaksbr }}</p>
+        	<p>{{ post.text|linebreaksbr|truncatewords:30 }}</p>
     	</div>
 	{% endfor %}
 		
